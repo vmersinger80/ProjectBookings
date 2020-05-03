@@ -1,0 +1,79 @@
+create schema 
+
+create a tble.
+
+DROP TABLE IF EXISTS bookings;
+CREATE TABLE bookings (
+
+rsvtn_id smallint NOT NULL,
+hotel character varying (50),
+is_canceled smallint NOT NULL,
+lead_time smallint NOT NULL,
+arrival_date_year smallint NOT NULL,
+arrival_date_month character varying (20),
+arrival_date_week_number smallint NOT NULL,
+arrival_date_day_of_month smallint NOT NULL,
+stays_in_weekend_nights smallint NOT NULL,
+stays_in_week_nights smallint NOT NULL,
+adults smallint NOT NULL,
+children smallint NOT NULL,
+babies smallint NOT NULL,
+meal character varying (10),
+country character varying (20),
+market_segment character varying (30),
+distrubtion_channel character varying (30),
+is_repeated_guest smallint NOT NULL,
+previous_cancellations smallint NOT NULL,
+previous_bookings_not_cancelled smallint NOT NULL,
+reserved_room_type character varying (10),
+assigned_room_type character varying (10),
+booking_changes smallint NOT NULL,
+deposit_type character varying (30),
+agent character varying (30),
+company character varying (30),
+days_in_waiting_list smallint NOT NULL,
+customer_type character varying (30),
+adr smallint NOT NULL,
+required_car_parking_spaces smallint NOT NULL,
+total_of_special_requests character varying (10),
+reservation_status character varying (30),
+reservation_status_date date
+);
+
+COPY bookings from (hotel,
+is_canceled,
+lead_time,
+arrival_date_year,
+arrival_date_month,
+arrival_date_week_number,
+arrival_date_day_of_month,
+stays_in_weekend_nights,
+stays_in_week_nights,
+adults,
+children,
+babies,
+meal,
+country,
+market_segment,
+distrubtion_channel,
+is_repeated_guest,
+previous_cancellations,
+previous_bookings_not_cancelled,
+reserved_room_type,
+assigned_room_type,
+booking_changes,
+deposit_type,
+agent,
+company,
+days_in_waiting_list,
+customer_type,
+adr,
+required_car_parking_spaces,
+total_of_special_requests,
+reservation_status,
+reservation_status_date
+)
+FROM 'C:\Users\vmers\OneDrive\Desktop\hotel_booking_dataset.csv' DELIMITER ',' CSV HEADER;
+
+COPY persons(first_name,last_name,dob,email) 
+FROM 'C:\tmp\persons.csv' DELIMITER ',' CSV HEADER;
