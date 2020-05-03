@@ -1,10 +1,8 @@
-create schema 
-
-create a tble.
-
+-- drop the table is it already exists
 DROP TABLE IF EXISTS bookings;
-CREATE TABLE bookings (
 
+-- create table in the schema
+CREATE TABLE bookings (
 rsvtn_id smallint NOT NULL,
 hotel character varying (50),
 is_canceled smallint NOT NULL,
@@ -40,6 +38,7 @@ reservation_status character varying (30),
 reservation_status_date date
 );
 
+-- upload data for each column
 COPY bookings from (hotel,
 is_canceled,
 lead_time,
@@ -73,7 +72,4 @@ total_of_special_requests,
 reservation_status,
 reservation_status_date
 )
-FROM 'C:\Users\vmers\OneDrive\Desktop\hotel_booking_dataset.csv' DELIMITER ',' CSV HEADER;
-
-COPY persons(first_name,last_name,dob,email) 
 FROM 'C:\tmp\persons.csv' DELIMITER ',' CSV HEADER;
